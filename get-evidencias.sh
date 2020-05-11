@@ -75,10 +75,10 @@ createEvidences() {
         i=0
         for branch in $(git branch -a | sed 's|\*||g' | awk '{print $1}')
         do
-                git checkout -f -q $branch
-	        git log --pretty=format:"%h%x09%ad%x09%s" -i --author="${AUTHOR}" --no-merges | awk -v PROJECT=$repository '{print $3" "$4 "\t" PROJECT "\t" $0}' | tail -r >> "$GITLOGS_DIRECTORY/${repository}_commits.log"
-                draw_progress_bar $i $Totalbranches
-                i=$(( i + 1 ))
+            git checkout -f -q $branch
+	        git log --pretty=format:"%h%x09%cd%x09%cn%x09%s" -i --committer="${AUTHOR}" --no-merges | awk -v PROJECT=$repository '{print $3" "$4 "\t" PROJECT "\t" $0}' | tail -r >> "$GITLOGS_DIRECTORY/${repository}_commits.log"
+            draw_progress_bar $i $Totalbranches
+            i=$(( i + 1 ))
         done
         draw_progress_bar $Totalbranches
         echo
