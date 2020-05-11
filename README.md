@@ -3,7 +3,7 @@
 ### Cambios iniciales
 
 ```console
-mv repositories.default repositories
+cp repositories.default repositories
 ```
 
 Rellenar el fichero repositories con una URL, HTTP, de repositorio por linea
