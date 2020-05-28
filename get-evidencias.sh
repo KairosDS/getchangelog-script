@@ -120,7 +120,7 @@ createEvidences() {
             sed -i "\|^${urlrepo}$|d" $WORKSPACE/repositories
             rm -rf $GITLAB_DIRECTORY/$repositoryName
         else
-        for MONTH in Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dic
+        for MONTH in Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
         do
             grep "^${MONTH}" "${repositoryCommitLog}" > "${WORKSPACE}/gitlogs/${MONTH}_${repositoryName}_commits.log" && echo -n "${MONTH} " || rm -f "${WORKSPACE}/gitlogs/${MONTH}_${repositoryName}_commits.log"
         done
